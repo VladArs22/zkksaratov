@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для сотрудников - Кирпичный Завод</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css ">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+              <!-- Логотип сайта -->
+            <div class="logo">
+                <img src="images/КАМЕНЬ/Римкер_Logo.png" alt="Логотип Кирпичного Завода" class="logo-image">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html">Продукция</a></li>
+                <li><a href="purchases.html">Закупки</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="for employees.html" class="active">Для сотрудников</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+<main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Для сотрудников</h1>
+                <p>Нам важно ваше мнение</p>
+            </div>
+        </section>
+    <!-- Анонимный запрос -->
+    <section class="anonymous-request">
+    <div class="container">
+        <h2>Оставить анонимную просьбу</h2>
+        <form id="requestForm">
+            <!-- Тема обращения -->
+            <label for="requestTheme">Выберите тему обращения:</label>
+            <select id="requestTheme" name="theme" required>
+                <option value="">-- Выберите тему --</option>
+                <option value="условия_труда">Условия труда</option>
+                <option value="оплата">Оплата</option>
+                <option value="руководство">Поведение руководства</option>
+                <option value="конфликты">Конфликты в коллективе</option>
+                <option value="предложения">Предложения по улучшению</option>
+                <option value="другое">Другое</option>
+            </select>
+
+            <!-- Текст просьбы -->
+            <label for="requestText">Ваше сообщение:</label>
+            <textarea id="requestText" name="message" rows="6" placeholder="Напишите ваше сообщение..." required></textarea>
+            <!-- Кнопка отправки -->
+            <button type="submit" class="cta-button">Отправить просьбу</button>
+        </form>
+    </div>
+</section>
+
+    <!-- Кнопка открытия теста -->
+    <section class="test-section">
+    <div class="container text-center">
+        <h2>Пройти анонимный тест</h2>
+        <p>&#8220Cоциальная справедливость в корпоративном управлении&#8221</p>
+        <button id="openTestBtn" class="cta-button secondary">Открыть тест</button>
+    </div>
+</section>
+
+    <!-- Модальное окно с тестом -->
+    <div id="testModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <h2>Анонимный тест по социальной справедливости</h2>
+            <form id="testForm">
+               <!-- Вопрос 1 -->
+            <div class="form-groupt">
+                <p>1. Укажите вашу занимаемую должность:</p>
+                <select name="q1" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="Рабочий">Рабочий</option>
+                    <option value="Мастер">Мастер</option>
+                    <option value="ИТР">ИТР</option>
+                    <option value="Руководитель подразделения">Руководитель подразделения</option>
+                </select>
+            </div>
+            <br>
+            <!-- Вопрос 2 -->
+            <div class="form-groupt">
+                <p>2. Как вы оцениваете уровень материального положения Вашей семьи?</p>
+                <select name="q2" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="едва сводим концы">Мы едва сводим концы с концами. Денег не хватает даже на питание.</option>
+                    <option value="только на питание">Денег хватает только на питание, но покупка одежды вызывает затруднение.</option>
+                    <option value="питание и одежда">Доходов хватает на питание и одежду, но на покупку вещей длительного пользования приходится брать заем, кредит.</option>
+                    <option value="вещи длительного пользования">Мы можем без труда покупать вещи длительного пользования.</option>
+                    <option value="дорогие вещи">Затруднительна только покупка действительно дорогих вещей, например, автомобиль.</option>
+                    <option value="можем позволить все">Мы можем без труда приобрести вещи длительного пользования, купить машину.</option>
+                    <option value="все">Мы можем позволить себе все, что пожелаем. У нас нет материальных затруднений.</option>
+                    <option value="затрудняюсь">Затрудняюсь ответить.</option>
+                </select>
+            </div>
+            <br>
+            <!-- Вопрос 3 -->
+            <div class="form-groupt">
+                <p>3. Как вы оцениваете свои отношения с членами трудового коллектива?</p>
+                <select name="q3" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="полное непонимание">У нас полное непонимание: мы не солидарны; друг другу никогда не помогаем.</option>
+                    <option value="редко помогаем">Мы по большей части не понимаем друг друга; между нами мало общих интересов; очень редко помогаем друг другу.</option>
+                    <option value="по-разному">Бывает по-разному. Не могу оценить однозначно.</option>
+                    <option value="частично взаимопонимание">У нас есть взаимопонимание, но существуют некоторые недопонимания; по большей части солидарны; помогаем друг другу, но не всегда.</option>
+                    <option value="полное доверие">У нас полное взаимопонимание; мы всегда солидарны; всегда готовы помочь друг другу.</option>
+                </select>
+            </div>
+            <br>
+            <!-- Вопрос 4 -->
+            <div class="form-groupt">
+                <p>4. Какие отношения сложились у вас с руководителями?</p>
+                <select name="q4" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="очень плохие">Очень плохие, мы полностью не понимаем друг друга, не поддерживаем, у нас совсем нет доверия</option>
+                    <option value="плохие">Плохие, мы по большей части не понимаем друг друга, не поддерживаем и не доверяем</option>
+                    <option value="по-разному">Бывает по-разному. Не могу оценить однозначно</option>
+                    <option value="хорошие">Хорошие, по большей части мы понимаем друг друга, поддерживаем и доверяем</option>
+                    <option value="отличные">Отличные, у нас полное взаимопонимание, поддержка, доверие</option>
+                </select>
+            </div>
+            <br>
+            <!-- Вопрос 5 -->
+            <div class="form-groupt">
+                <p>5. Чувствуете ли вы, что в вашей организации все сотрудники имеют равные возможности для профессионального роста?</p>
+                <label><input type="radio" name="q5" value="да" required> Да</label>
+                <label><input type="radio" name="q5" value="скорее да"> Скорее да</label>
+                <label><input type="radio" name="q5" value="скорее нет"> Скорее нет</label>
+                <label><input type="radio" name="q5" value="нет"> Нет</label>
+                <label><input type="radio" name="q5" value="затрудняюсь"> Затрудняюсь ответить</label>
+            </div>
+            <br>
+            <!-- Вопрос 6 -->
+            <div class="form-groupt">
+                <p>6. Аргументируйте свой ответ:</p>
+                <textarea name="q6" rows="4"></textarea>
+            </div>
+            <br>
+            <!-- Вопрос 7 -->
+            <div class="form-groupt">
+                <p>7. Сомневаетесь ли вы в справедливости решений, принимаемых руководством (например, по повышению, премиям и др.)?</p>
+                <label><input type="radio" name="q7" value="никогда" required> Никогда</label>
+                <label><input type="radio" name="q7" value="редко"> Редко</label>
+                <label><input type="radio" name="q7" value="иногда"> Иногда</label>
+                <label><input type="radio" name="q7" value="часто"> Часто</label>
+                <label><input type="radio" name="q7" value="всегда"> Всегда</label>
+            </div>
+            <br>
+            <!-- Вопрос 8 -->
+            <div class="form-groupt">
+                <p>8. Считаете ли вы оплату своего труда справедливой?</p>
+                <label><input type="radio" name="q8" value="нет" required> Нет</label>
+                <label><input type="radio" name="q8" value="скорее нет"> Скорее нет</label>
+                <label><input type="radio" name="q8" value="скорее да"> Скорее да</label>
+                <label><input type="radio" name="q8" value="да"> Да</label>
+                <label><input type="radio" name="q8" value="затрудняюсь"> Затрудняюсь ответить</label>
+            </div>
+            <br>
+            <!-- Вопрос 9 -->
+            <div class="form-groupt">
+                <p>9. Ознакомлены ли вы с критериями, по которым оценивается ваша работа?</p>
+                <label><input type="radio" name="q9" value="не ознакомлен" required> Не ознакомлен</label>
+                <label><input type="radio" name="q9" value="частично"> Частично ознакомлен</label>
+                <label><input type="radio" name="q9" value="полностью"> Ознакомлен полностью</label>
+                <label><input type="radio" name="q9" value="затрудняюсь"> Затрудняюсь ответить</label>
+            </div>
+            <br>
+            <!-- Вопрос 10 -->
+            <div class="form-groupt">
+                <p>10. Были ли у вас случаи, когда вы ощущали несправедливость в отношении себя на работе (в распределении заданий, графика, премий и т. д.)?</p>
+                <label><input type="radio" name="q10" value="да регулярно" required> Да, регулярно</label>
+                <label><input type="radio" name="q10" value="иногда"> Иногда</label>
+                <label><input type="radio" name="q10" value="нет"> Нет, не было</label>
+                <label><input type="radio" name="q10" value="затрудняюсь"> Затрудняюсь ответить</label>
+            </div>
+            <br>
+            <!-- Вопрос 11 -->
+            <div class="form-groupt" id="question11" style="display: none;">
+                <p>11. Если да, опишите одну из таких ситуаций:</p>
+                <textarea name="q11" rows="4"></textarea>
+            </div>
+            <br>
+            <!-- Вопрос 12 -->
+            <div class="form-groupt">
+                <p>12. Какие из следующих факторов, по вашему мнению, наиболее мешают социальной справедливости в организации? (можно выбрать до 3)</p>
+                <label><input type="checkbox" name="q12[]" value="личное отношение руководства"> Личное отношение руководства</label>
+                <label><input type="checkbox" name="q12[]" value="отсутствие критериев"> Отсутствие прозрачных критериев</label>
+                <label><input type="checkbox" name="q12[]" value="отсутствие системы"> Отсутствие системы оценки эффективности</label>
+                <label><input type="checkbox" name="q12[]" value="свои люди"> Наличие "своих людей"</label>
+                <label><input type="checkbox" name="q12[]" value="слабая коммуникация"> Недостаточная коммуникация между уровнями</label>
+                <label><input type="checkbox" name="q12[]" value="другое"> Другое (уточните ниже):</label>
+                <input type="text" name="other_q12" placeholder="Уточните, если выбрали 'другое'">
+            </div>
+            <br>
+            <!-- Вопрос 13 -->
+            <div class="form-groupt">
+                <p>13. Какие формы поддержки сотрудников вам кажутся наиболее значимыми? (выберите до 3)</p>
+                <label><input type="checkbox" name="q13[]" value="повышение зарплаты"> Повышение зарплаты</label>
+                <label><input type="checkbox" name="q13[]" value="гибкий график"> Гибкий график / Work-Life Balance</label>
+                <label><input type="checkbox" name="q13[]" value="обучение"> Обучение и повышение квалификации</label>
+                <label><input type="checkbox" name="q13[]" value="поддержка при трудностях"> Поддержка при личных или семейных трудностях</label>
+                <label><input type="checkbox" name="q13[]" value="прозрачная система"> Прозрачная система премирования</label>
+                <label><input type="checkbox" name="q13[]" value="психологическая поддержка"> Психологическая поддержка</label>
+                <label><input type="checkbox" name="q13[]" value="другое"> Другое (уточните ниже):</label>
+                <input type="text" name="other_q13" placeholder="Уточните, если выбрали 'другое'">
+            </div>
+            <br>
+            <!-- Вопрос 14 -->
+            <div class="form-groupt">
+                <p>14. Какие ценности, по вашему мнению, должны лежать в основе справедливого корпоративного управления?</p>
+                <textarea name="q14" rows="4" required></textarea>
+            </div>
+
+            <!-- Вопрос 15 -->
+            <div class="form-groupt">
+                <p>15. Хотели бы вы участвовать в обсуждении и формировании внутренних правил и решений компании?</p>
+                <label><input type="radio" name="q15" value="важно" required> Да, это важно для меня</label>
+                <label><input type="radio" name="q15" value="если не займёт много времени"> Возможно, если это не отнимет много времени</label>
+                <label><input type="radio" name="q15" value="неинтересно"> Нет, это неинтересно</label>
+                <label><input type="radio" name="q15" value="затрудняюсь"> Затрудняюсь ответить</label>
+            </div>
+                <button type="submit" class="cta-button">Отправить тест</button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+        <div class="footer-image">
+        <div class="logos">
+            <img src="images/КАМЕНЬ/Римкер_Logo.png" alt="Логотип Кирпичного Завода" class="logo-image">
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Общество с ограниченной ответственностью «Завод керамического кирпича» (ООО "ЗКК").</h3>
+                <p><i class="fas fa-phone"></i> +7 (8452) 75-43-53</p>
+                <p><i class="fas fa-envelope"></i> info@rimker.ru</p>
+                <p><i class="fas fa-map-marker-alt"></i> 410074, г. Саратов, р.п. 2-я Гуселка, 1</p>
+            </div>
+
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Кирпичный Завод. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+       // Отправка просьбы
+document.getElementById("requestForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const text = document.getElementById("requestText").value;
+
+    fetch('http://localhost:3000/submit-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ request: text })
+    }).then(() => {
+        alert("Спасибо! Ваша просьба отправлена.");
+        document.getElementById("requestText").value = "";
+    });
+});
+
+// Открытие модального окна
+document.getElementById("openTestBtn").addEventListener("click", () => {
+    document.getElementById("testModal").style.display = "block";
+});
+
+// Закрытие модального окна
+document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("testModal").style.display = "none";
+    document.getElementById("testForm").reset();
+});
+
+// Отправка теста
+document.getElementById("testForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = {
+        q1: document.querySelector("select[name='q1']").value,
+        q2: document.querySelector("select[name='q2']").value,
+        q3: document.querySelector("select[name='q3']").value,
+        q4: document.querySelector("select[name='q4']").value,
+        q5: document.querySelector("input[name='q5']:checked")?.value,
+
+        q6: document.querySelector("textarea[name='q6']")?.value,
+
+        q7: document.querySelector("input[name='q7']:checked")?.value,
+        q8: document.querySelector("input[name='q8']:checked")?.value,
+        q9: document.querySelector("input[name='q9']:checked")?.value,
+        q10: document.querySelector("input[name='q10']:checked")?.value,
+
+        q11: document.querySelector("textarea[name='q11']")?.value,
+
+        q12: Array.from(document.querySelectorAll("input[name='q12[]']:checked")).map(el => el.value),
+        q13: Array.from(document.querySelectorAll("input[name='q13[]']:checked")).map(el => el.value),
+
+        q14: document.querySelector("textarea[name='q14']")?.value,
+        q15: document.querySelector("input[name='q15']:checked")?.value
+    };
+
+    fetch('http://localhost:3000/submit-test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    }).then(() => {
+        alert("Спасибо! Тест отправлен.");
+        document.getElementById("testModal").style.display = "none";
+        this.reset();
+    });
+});
+// Показ/скрытие вопроса 11 в зависимости от ответа на q10
+    document.querySelectorAll('input[name="q10"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            const question11 = document.getElementById('question11');
+            if (document.querySelector('input[name="q10"]:checked')?.value === 'да регулярно' ||
+                document.querySelector('input[name="q10"]:checked')?.value === 'иногда') {
+                question11.style.display = 'block';
+            } else {
+                question11.style.display = 'none';
+            }
+        });
+    });
+    </script>
+<style>
+
+/* Стили для кнопки */
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: rgba(116, 59, 49, 0.54); /* Синяя кнопка */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: rgba(116, 59, 49, 0.88); /* Светлая синяя при наведении */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 950px;
+    color: black;
+    position: relative;
+    overflow-y: auto; /* Добавляем прокрутку, если контент слишком большой */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+}
+
+#closeModal:hover,
+#closeModal:focus {
+    color: black;
+}
+
+.form-groupt {
+    margin-bottom: 1.5rem;
+}
+
+.form-groupt select,
+.form-groupt input[type="radio"] + label,
+.form-groupt input[type="checkbox"] + label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Стили для селектора */
+.form-groupt select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.3%22%20height%3D%2244.7%22%20viewBox%3D%220%200%20292.3%2044.7%22%3E%3Cpath%20fill%3D%22%23007CFE%22%20d%3D%22M284.5%2029.7c0%20-.6-.1-1.1-.1-1.6s.1-1.1.1-1.6c0-.7-.1-1.1-.1-1.6a1.65%201.65%200%200%201%200%202.3l-8.3%2016.7%208.3%2016.7a1.65%201.65%200%200%201%200-2.3zM217.4%2044.7H29.9c-3.3%200-6-2.6-6-5.9V6.1c0-3.3%202.6-5.9%206-5.9h187.5c3.3%200%206%202.6%206%205.9v32.7c0%203.3-2.6%205.9-6%205.9z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 0.7em center;
+    background-size: 16px 16px;
+    cursor: pointer;
+}
+
+/* Стили для опций селектора */
+.form-groupt select option {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Стили для радио-кнопок */
+/* Стили для радиокнопок */
+.form-groupt label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.form-groupt input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* Стили для текстового поля */
+.form-groupt textarea {
+    width: 100%; /* Занимает всю ширину контейнера */
+    padding: 0.8rem; /* Поля для текста */
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Разрешаем изменять высоту */
+    box-sizing: border-box; /* Учитывает padding и border в ширину */
+}
+
+/* Стили для чекбоксов */
+.form-groupt input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* Стили для поля дополнительного текста */
+.form-groupt textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-top: 0.5rem;
+}
+/* Форма */
+.anonymous-request {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+}
+
+.anonymous-request .container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+select,
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+select:focus,
+textarea:focus,
+input:focus {
+    outline: none;
+    border-color: rgba(116, 59, 49, 0.82);
+    box-shadow: 0 0 0 2px rgb(249, 240, 234);
+}
+
+</style>
+
+</body>
+</html>

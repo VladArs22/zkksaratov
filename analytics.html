@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Аналитика по сотрудникам</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+            white-space: pre-wrap; /* Перенос текста */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Все ответы сотрудников</h1>
+
+<!-- Таблица просьб -->
+<h2 style="margin-top: 2rem;">Анонимные просьбы</h2>
+<table id="requestsTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Просьба</th>
+            <th>Дата создания</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Таблица тестов -->
+<h2>Результаты теста</h2>
+<table id="testResultsTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Должность (q1)</th>
+            <th>Мат. положение (q2)</th>
+            <th>Коллектив (q3)</th>
+            <th>Руководство (q4)</th>
+            <th>Равные возможности (q5)</th>
+            <th>Аргумент (q6)</th>
+            <th>Справедливость решений (q7)</th>
+            <th>Оплата труда (q8)</th>
+            <th>Критерии оценки (q9)</th>
+            <th>Чувствовали несправедливость (q10)</th>
+            <th>Описание ситуации (q11)</th>
+            <th>Факторы мешают (q12)</th>
+            <th>Формы поддержки (q13)</th>
+            <th>Ценности управления (q14)</th>
+            <th>Хочу участвовать (q15)</th>
+            <th>Дата</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    white-space: pre-wrap;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    padding: 0.5rem 1rem;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+</style>
+<script>
+// Загрузка просьб
+fetch('http://localhost:3000/get-requests?key=mySuperSecretKeyForResults')
+    .then(res => res.json())
+    .then(data => {
+        const requestsTableBody = document.querySelector('#requestsTable tbody');
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${row.id}</td>
+                <td>${row.request}</td>
+                <td>${new Date(row.created_at).toLocaleString()}</td>
+            `;
+            requestsTableBody.appendChild(tr);
+        });
+    })
+    .catch(err => {
+        console.error("Ошибка загрузки просьб:", err);
+        document.querySelector('#requestsTable tbody').innerHTML = `<tr><td colspan="3">Ошибка загрузки просьб</td></tr>`;
+    });
+
+// Загрузка тестов
+fetch('http://localhost:3000/get-test-results?key=mySuperSecretKeyForResults')
+    .then(res => res.json())
+    .then(data => {
+        const testTableBody = document.querySelector('#testResultsTable tbody');
+        data.forEach(response => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${response.id}</td>
+                <td>${response.q1 || '-'}</td>
+                <td>${response.q2 || '-'}</td>
+                <td>${response.q3 || '-'}</td>
+                <td>${response.q4 || '-'}</td>
+                <td>${response.q5 || '-'}</td>
+                <td>${response.q6 || '-'}</td>
+                <td>${response.q7 || '-'}</td>
+                <td>${response.q8 || '-'}</td>
+                <td>${response.q9 || '-'}</td>
+                <td>${response.q10 || '-'}</td>
+                <td>${response.q11 || '-'}</td>
+                <td>${Array.isArray(response.q12) ? response.q12.join(', ') : '-'}</td>
+                <td>${Array.isArray(response.q13) ? response.q13.join(', ') : '-'}</td>
+                <td>${response.q14 || '-'}</td>
+                <td>${response.q15 || '-'}</td>
+                <td>${new Date(response.created_at).toLocaleString()}</td>
+            `;
+            testTableBody.appendChild(row);
+        });
+    })
+    .catch(err => {
+        console.error("Ошибка загрузки теста:", err);
+        document.querySelector('#testResultsTable tbody').innerHTML = `<tr><td colspan="17">Ошибка загрузки теста</td></tr>`;
+    });
+</script>
+
+</body>
+</html>

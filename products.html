@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Продукция - Кирпичный Завод</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css ">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+              <!-- Логотип сайта -->
+            <div class="logo">
+                <img src="images/КАМЕНЬ/Римкер_Logo.png" alt="Логотип Кирпичного Завода" class="logo-image">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html" class="active">Продукция</a></li>
+                <li><a href="purchases.html">Закупки</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="for employees.html">Для сотрудников</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Наша продукция</h1>
+                <p>Высококачественные строительные материалы для вашего проекта</p>
+            </div>
+        </section>
+
+               <!-- Модальное окно -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="" alt="Товар" class="modal-image">
+        <h2 class="modal-title"></h2>
+        <ul class="modal-details">
+            <!-- Характеристики товара будут динамически заполняться -->
+        </ul>
+    </div>
+</div>
+        <!-- Блок выбора категории -->
+        <section class="category-selection">
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="standard">Лицевой кирпич</button>
+                <button class="category-btn" data-category="facing">Керамический камень</button>
+                <button class="category-btn" data-category="ceramic">Полнотелый кирпич</button>
+            </div>
+        </section>
+
+        <!-- Группа: Лицевой кирпич -->
+<div class="category-group" data-category="standard" style="display: block;">
+      <div class="product-header red-brick-banner" id="bannerRed">
+    <div class="content">
+        <h2>КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ</h2>
+        <p>Классический цвет керамического кирпича</p>
+    </div>
+</div>
+
+
+        <!-- Блок товаров -->
+        <section class="products">
+            <div class="product-grid" id="productGrid">
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ"
+                     data-color="Классический цвет керамического кирпича. Идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов."
+                     data-size="250x120x65 мм."
+                     data-weight="2.5 кг."
+                     data-pallet="480шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 / М250"
+                     data-emptiness="31-35%"
+                     data-thermal="0,43 Вт/(МоС);"
+                     data-resistance="50-100 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ-КЕРАМИЧЕСКИЙ-ОДИНАРНЫЙ.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ-КЕРАМИЧЕСКИЙ-ОДИНАРНЫЙ.png" alt="Одинарный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ</h3>
+                        <p>Кирпич керамический одинарный (1.0 НФ), цвет «Красный», поверхность гладкая</p>
+                    </div>
+
+
+
+                </div>
+            <div class="product-card"
+                 data-category="standard"
+                 data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ"
+                 data-color="Классический цвет керамического кирпича. Идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                 data-description="Облицовка стен и дополнительное декорирование фасадов. Увеличенный размер кирпича по сравнению с одинарным позволяет экономить строительные материалы и время постройки."
+                 data-size="250х120х88 мм."
+                 data-weight="3.5 кг."
+                 data-pallet="352шт."
+                 data-pack="лицевой слой проложен изолайном."
+                 data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                 data-gost="ГОСТ 530-2012"
+                 data-strength="М150 / М200 / М250"
+                 data-emptiness="31-35%"
+                 data-thermal="0,40 Вт/(МоС);"
+                 data-resistance="50-75 циклов;"
+                 data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ.png" alt="Утолщенный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ</h3>
+                        <p>Кирпич керамический утолщенный (1.4 НФ), цвет «Красный», поверхность гладкая</p>
+                    </div>
+                </div>
+
+
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ &#8220КОРА ДУБА&#8221"
+                     data-color="Классический цвет керамического кирпича. Идеально сочетается с другими керамическими цветами. Дополнительное фигурное рифление поверхности &#8220Кора Дуба&#8221 расширяет дизайнерские возможности отделки зданий."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов."
+                     data-size="250x120x88 мм."
+                     data-weight="3.5 кг."
+                     data-pallet="352шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 "
+                     data-emptiness="31-35%"
+                     data-thermal="0,43 Вт/(МоС);"
+                     data-resistance="50-100 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙКР.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙКР.png" alt="Кора Дуба">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ "КОРА ДУБА"</h3>
+                        <p>Кирпич керамический одинарный (1.4 НФ), цвет "Красный", поверхность "Кора дуба"</p>
+                    </div>
+
+                </div>
+
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ &#8220ЧЕРЕПАХА&#8221"
+                     data-color="Классический цвет керамического кирпича. Идеально сочетается с другими керамическими цветами. Дополнительное фигурное рифление поверхности &#8220Черепаха&#8221 расширяет дизайнерские возможности отделки зданий."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов. Увеличенный размер кирпича по сравнению с одинарным позволяет экономить строительные материалы и время постройки."
+                     data-size="250x120x88 мм."
+                     data-weight="3.5 кг."
+                     data-pallet="352шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 "
+                     data-emptiness="31-35%"
+                     data-thermal="0,40 Вт/(МоС);"
+                     data-resistance="50-75 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ЧЕРЕПАХА.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ КРАСНЫЙ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ЧЕРЕПАХА.png" alt="Черепаха">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ "ЧЕРЕПАХА"</h3>
+                        <p>Кирпич керамический утолщенный (1.4 НФ), цвет «Красный", поверхность "Черепаха»</p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Новый баннер -->
+<div class="product-header white-brick-banner" id="bannerSolar">
+    <div class="content">
+        <h2>КИРПИЧ КЕРАМИЧЕСКИЙ СОЛОМА СВЕТЛАЯ</h2>
+        <p>Еще ярче и теплее! Отличное сочетание с другими керамическими цветами!</p>
+    </div>
+</div>
+
+         <!-- Блок товаров -->
+        <section class="products">
+            <div class="product-grid" id="productGrid">
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ СОЛОМА СВЕТЛАЯ"
+                     data-color="Цвет &#8220Солома Светлая&#8221 идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов."
+                     data-size="250x120x65 мм."
+                     data-weight="2.5 кг."
+                     data-pallet="480шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 / М250"
+                     data-emptiness="31-35%"
+                     data-thermal="0,43 Вт/(МоС);"
+                     data-resistance="50-100 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ СОЛОМА СВЕТЛАЯ/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ СОЛОМА СВЕТЛАЯ.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ СОЛОМА СВЕТЛАЯ/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ СОЛОМА СВЕТЛАЯ.png" alt="Одинарный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ СОЛОМА СВЕТЛАЯ</h3>
+                        <p>Кирпич керамический одинарный (1.0 НФ), цвет «Солома светлая», поверхность гладкая</p>
+                    </div>
+                </div>
+            <div class="product-card"
+                 data-category="standard"
+                 data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ СОЛОМА СВЕТЛАЯ"
+                 data-color="Цвет &#8220Солома Светлая&#8221 идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                 data-description="Облицовка стен и дополнительное декорирование фасадов. Увеличенный размер кирпича по сравнению с одинарным позволяет экономить строительные материалы и время постройки."
+                 data-size="250x120x88 мм."
+                 data-weight="3.5 кг."
+                 data-pallet="352шт."
+                 data-pack="лицевой слой проложен изолайном."
+                 data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                 data-gost="ГОСТ 530-2012"
+                 data-strength="М150 / М200 / М250"
+                 data-emptiness="31-35%"
+                 data-thermal="0,40 Вт/(МоС);"
+                 data-resistance="50-75 циклов;"
+                 data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ СОЛОМА СВЕТЛАЯ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ СОЛОМА СВЕТЛАЯ.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ СОЛОМА СВЕТЛАЯ/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ СОЛОМА СВЕТЛАЯ.png" alt="Утолщенный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ СОЛОМА СВЕТЛАЯ</h3>
+                        <p>Кирпич керамический утолщенный (1.4 НФ), цвет «Солома светлая», поверхность гладкая</p>
+                    </div>
+                </div>
+
+        </section>
+
+
+               <!-- Новый баннер -->
+<div class="product-header peach-brick-banner" id="bannerPeach">
+    <div class="content">
+        <h2>КИРПИЧ КЕРАМИЧЕСКИЙ ПЕРСИК</h2>
+        <p>Светлый теплый тон. Создает «Солнечное» настроение. Идеально сочетается с другими керамическими цветами.</p>
+    </div>
+</div>
+
+         <!-- Блок товаров -->
+        <section class="products">
+            <div class="product-grid" id="productGrid">
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ПЕРСИК"
+                     data-color="Цвет &#8220Персик&#8221 идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов."
+                     data-size="250x120x65 мм."
+                     data-weight="2.5 кг."
+                     data-pallet="480шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 "
+                     data-emptiness="31-35%"
+                     data-thermal="0,43 Вт/(МоС);"
+                     data-resistance="50-100 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ ПЕРСИК/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ПЕРСИК.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ ПЕРСИК/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ПЕРСИК.png" alt="Одинарный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ПЕРСИК</h3>
+                        <p>Кирпич керамический одинарный (1.0 НФ), цвет «Персик», поверхность гладкая</p>
+                    </div>
+                </div>
+            <div class="product-card"
+                 data-category="standard"
+                 data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ"
+                 data-color="Цвет &#8220Персик&#8221 идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                 data-description="Облицовка стен и дополнительное декорирование фасадов. Увеличенный размер кирпича по сравнению с одинарным позволяет экономить строительные материалы и время постройки."
+                 data-size="250x120x88 мм."
+                 data-weight="3.5 кг."
+                 data-pallet="352шт."
+                 data-pack="лицевой слой проложен изолайном."
+                 data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                 data-gost="ГОСТ 530-2012"
+                 data-strength="М150 / М200 "
+                 data-emptiness="31-35%"
+                 data-thermal="0,40 Вт/(МоС);"
+                 data-resistance="50-75 циклов;"
+                 data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ ПЕРСИК/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ПЕРСИК.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ ПЕРСИК/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ПЕРСИК.png" alt="Утолщенный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ</h3>
+                        <p>Кирпич керамический утолщенный (1.4 НФ), цвет "Персик", поверхность гладкая</p>
+                    </div>
+                </div>
+        </section>
+
+               <!-- Новый баннер -->
+<div class="product-header black-brick-banner" id="bannerGothic">
+    <div class="content">
+        <h2>КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА</h2>
+        <p>Кирпич цвета "Готика" добавит элегантности внешнему виду любого дома.</p>
+    </div>
+</div>
+
+         <!-- Блок товаров -->
+        <section class="products">
+            <div class="product-grid" id="productGrid">
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА"
+                     data-color="Цвет &#8220Готика&#8221 идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов."
+                     data-size="250x120x65 мм."
+                     data-weight="2.5 кг."
+                     data-pallet="480шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 / М250"
+                     data-emptiness="31-35%"
+                     data-thermal="0,43 Вт/(МоС);"
+                     data-resistance="50-100 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА.png" alt="Одинарный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА</h3>
+                        <p>Кирпич керамический одинарный (1.0 НФ), цвет «Готика», поверхность гладкая</p>
+                    </div>
+                </div>
+            <div class="product-card"
+                 data-category="standard"
+                 data-title="КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА &#8220КОРА ДУБА&#8221"
+                 data-color="Цвет &#8220Готика&#8221 идеально сочетается с другими керамическими цветами. Дополнительное фигурное рифление поверхности &#8220Кора дуба&#8221 расширяет дизайнерские возможности отделки зданий."
+                 data-description="Облицовка стен и дополнительное декорирование фасадов."
+                 data-size="250x120x65 мм."
+                 data-weight="2.5 кг."
+                 data-pallet="480шт."
+                 data-pack="лицевой слой проложен изолайном."
+                 data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                 data-gost="ГОСТ 530-2012"
+                 data-strength="М150 / М200 / М250"
+                 data-emptiness="31-35%"
+                 data-thermal="0,43 Вт/(МоС);"
+                 data-resistance="50-100 циклов;"
+                 data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА КОРА ДУБА.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА КОРА ДУБА.png" alt="Утолщенный">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ ОДИНАРНЫЙ ГОТИКА "КОРА ДУБА"</h3>
+                        <p>Кирпич керамический одинарный (1.0 НФ), цвет "Готика", поверхность "Кора дуба"</p>
+                    </div>
+                </div>
+
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА"
+                     data-color="Цвет &#8220Готика&#8221 идеально сочетается с другими керамическими цветами. Подчеркивает силуэт окна, выделяется угол, дверные проемы, может служить фоном фасадам, все зависит от фантазии проектировщика."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов. Увеличенный размер кирпича по сравнению с одинарным позволяет экономить строительные материалы и время постройки."
+                     data-size="250x120x88 мм."
+                     data-weight="3.5 кг."
+                     data-pallet="352шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 "
+                     data-emptiness="31-35%"
+                     data-thermal="0,40 Вт/(МоС);"
+                     data-resistance="50-75 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА.png" alt="Кора Дуба">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА</h3>
+                        <p>Кирпич керамический утолщенный (1.4 НФ), цвет «Готика», поверхность гладкая</p>
+                    </div>
+                </div>
+
+                <div class="product-card"
+                     data-category="standard"
+                     data-title="КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА &#8220КОРА ДУБА&#8221"
+                     data-color="Цвет &#8220Готика&#8221 идеально сочетается с другими керамическими цветами. Дополнительное фигурное рифление поверхности &#8220Кора дуба&#8221 расширяет дизайнерские возможности отделки зданий."
+                     data-description="Облицовка стен и дополнительное декорирование фасадов. Увеличенный размер кирпича по сравнению с одинарным позволяет экономить строительные материалы и время постройки."
+                     data-size="250x120x88 мм."
+                     data-weight="3.5 кг."
+                     data-pallet="352шт."
+                     data-pack="лицевой слой проложен изолайном."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="М150 / М200 "
+                     data-emptiness="31-35%"
+                     data-thermal="0,40 Вт/(МоС);"
+                     data-resistance="50-75 циклов;"
+                     data-image="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА КОРА ДУБА.png">
+                    <img src="images/КИРПИЧ КЕРАМИЧЕСКИЙ ГОТИКА/КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА КОРА ДУБА.png" alt="Черепаха">
+                    <div class="product-info">
+                        <h3>КИРПИЧ КЕРАМИЧЕСКИЙ УТОЛЩЕННЫЙ ГОТИКА "КОРА ДУБА"</h3>
+                        <p>Кирпич керамический утолщенный (1.4 НФ), цвет "Готика", поверхность "Кора дуба</p>
+                    </div>
+                </div>
+        </section>
+</div>
+
+        <div class="category-group" data-category="facing" style="display: none;">
+       <div class="product-header kamen-brick-banner" id="bannerFacing" style="display: none;">
+    <div class="content">
+        <h2>КЕРАМИЧЕСКИЙ КАМЕНЬ</h2>
+        <p>Применяется в сооружении наружных и внутренних стен зданий. Обладает повышенной энергоэффективностью, что позволяет строить здания, удовлетворяющие современным требованиям к теплосбережению.</p>
+    </div>
+</div>
+
+
+        <!-- Блок товаров -->
+        <section class="products">
+            <div class="product-grid" id="productGrid">
+                <div class="product-card"
+                     data-category="facing"
+                     data-title="КАМЕНЬ КЕРАМИЧЕСКИЙ (2.15 НФ)"
+                     data-color="Красный"
+                     data-description="Основной стеновой материал. Применяется с облицовочным кирпичом, что делает стену более теплой, гарантирует долговечность фасадов.Теплотехнические характеристики позволяют обеспечить возведение несущих и ограждающих конструкций толщиной 640 мм без дополнительного утепления.Идеально сочетается с другими кирпичными форматами."
+                     data-size="250x120x140 мм."
+                     data-weight="3.8 кг."
+                     data-pallet="280шт."
+                     data-pack="Без изолайна."
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="M125 / М150 / M175 / М200 "
+                     data-emptiness="33-48%"
+                     data-thermal="<br>
+                     1.В сухом состоянии 0,187 Вт/М оС
+                     <br>
+                     2.В условиях эксплуатации &#8220А&#8221 0,205 Вт/М оС
+                     <br>
+                     3.В условиях эксплуатации &#8220Б&#8221 0,230 Вт/М оС"
+                     data-resistance="50-100 циклов;"
+                     data-image="images/КАМЕНЬ/Камень керамический.jpg">
+                    <img src="images/КАМЕНЬ/Камень керамический.jpg" alt="Одинарный">
+                    <div class="product-info">
+                        <h3>КАМЕНЬ КЕРАМИЧЕСКИЙ (2.15 НФ)</h3>
+                        <p>Камень керамический повышенной эффективности (2.15 НФ).</p>
+                    </div>
+                </div>
+            <div class="product-card"
+                 data-category="facing"
+                 data-title="КАМЕНЬ ПЕРЕГОРОДОЧНЫЙ (5.73 НФ)"
+                 data-color="Красный"
+                 data-description="Перегородки межкомнатные"
+                 data-size="100x510x219 мм."
+                 data-weight="11.2-12.8 кг"
+                 data-pallet="100шт."
+                 data-pack="Без изолайна."
+                 data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                 data-gost="ГОСТ 530-2012"
+                 data-strength="M75"
+                 data-emptiness="33-48%"
+                 data-thermal="0.18-0.28 Вт/(МоС)"
+                 data-resistance="25-50 циклов;"
+                 data-image="images/КАМЕНЬ/Камень перегородочный.jpg">
+                    <img src="images/КАМЕНЬ/Камень перегородочный.jpg" alt="Утолщенный">
+                    <div class="product-info">
+                        <h3>КАМЕНЬ ПЕРЕГОРОДОЧНЫЙ (5.73 НФ)</h3>
+                        <p>Камень керамический крупноформатный перегородочный (5.73 НФ).</p>
+                    </div>
+                </div>
+
+
+</section>
+</div>
+
+       <div class="category-group" data-category="ceramic" style="display: none;">
+       <div class="product-header pol-brick-banner" id="bannerCeramic" style="display: none;">
+    <div class="content">
+        <h2>КИРПИЧ ПОЛНОТЕЛЫЙ</h2>
+        <p>Предназначен для обустройства подвалов и фундаментов зданий и сооружений.</p>
+    </div>
+</div>
+        <!-- Блок товаров -->
+        <section class="products">
+            <div class="product-grid" id="productGrid">
+                <div class="product-card"
+                     data-category="ceramic"
+                     data-title="МАЛОПУСТОТНЫЙ КИРПИЧ"
+                     data-color="Красный"
+                     data-description="Применяется для обустройства цоколей, подвалов"
+                     data-size="250х120х65 мм."
+                     data-weight="3.8 кг"
+                     data-pallet="&#8220Елочка&#8221 - 360шт., &#8220Куб&#8221 - 384шт., &#8220Авто&#822 - 392шт."
+                     data-pack="&#8220Елочка&#8221, &#8220Куб&#8221, &#8220Авто&#8221"
+                     data-road="на поддонах в стрейч пленке, обвязан полипропиленовой лентой."
+                     data-gost="ГОСТ 530-2012"
+                     data-strength="M100 / M200"
+                     data-emptiness="до 13%"
+                     data-thermal="0,50-0,70 Вт/(МоС)"
+                     data-resistance="50 циклов;"
+                     data-image="images/Кирпич полнотелый/МАЛОПУСТОТНЫЙ КИРПИЧ.png">
+                    <img src="images/Кирпич полнотелый/МАЛОПУСТОТНЫЙ КИРПИЧ.png" alt="Одинарный">
+                    <div class="product-info">
+                        <h3>МАЛОПУСТОТНЫЙ КИРПИЧ</h3>
+                        <p>Кирпич керамический малопустотный (1.0 НФ) «Красный» </p>
+                    </div>
+                </div>
+
+
+</section>
+       </div>
+
+        </script>
+    <footer>
+        <div class="footer-image">
+        <div class="logos">
+            <img src="images/КАМЕНЬ/Римкер_Logo.png" alt="Логотип Кирпичного Завода" class="logo-image">
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Общество с ограниченной ответственностью «Завод керамического кирпича» (ООО "ЗКК").</h3>
+                <p><i class="fas fa-phone"></i> +7 (8452) 75-43-53</p>
+                <p><i class="fas fa-envelope"></i> info@rimker.ru</p>
+                <p><i class="fas fa-map-marker-alt"></i> 410074, г. Саратов, р.п. 2-я Гуселка, 1</p>
+            </div>
+
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Кирпичный Завод. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const productGrid = document.getElementById('productGrid');
+            const products = document.querySelectorAll('.product-card');
+
+            function showProductsByCategory(category) {
+                products.forEach(product => {
+                    if (category === 'all' || product.dataset.category === category) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const category = this.dataset.category;
+
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    productGrid.style.display = 'grid';
+                    showProductsByCategory(category);
+                });
+            });
+
+            // Автоматически показываем первый список товаров
+            if (categoryButtons.length > 0) {
+                categoryButtons[0].click();
+            }
+        });
+    </script>
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const productGrid = document.getElementById('productGrid');
+        const products = document.querySelectorAll('.product-card');
+
+        // Все баннеры по ID
+        const banners = {
+            standard: [
+                document.getElementById('bannerRed'),
+                document.getElementById('bannerSolar'),
+                document.getElementById('bannerPeach'),
+                document.getElementById('bannerGothic')
+            ],
+            facing:
+                document.getElementById('bannerFacing'),
+            ceramic:
+                document.getElementById('bannerCeramic')
+        };
+
+        function showProductsByCategory(category) {
+            // Фильтруем товары
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            // Скрываем ВСЕ баннеры
+            document.querySelectorAll('.product-header').forEach(banner => {
+                banner.style.display = 'none';
+            });
+
+            // Показываем нужные баннеры
+            if (category === 'standard') {
+                // Показываем все баннеры из категории "standard"
+                banners.standard.forEach(banner => {
+                    if (banner) banner.style.display = 'flex'; // или block
+                });
+            } else {
+                // Для других категорий — показываем только их баннер (если есть)
+                if (banners[category]) {
+                    banners[category].style.display = 'flex';
+                }
+            }
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.dataset.category;
+
+                // Обновляем активную кнопку
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Показываем сетку товаров
+                productGrid.style.display = 'grid';
+
+                // Обновляем отображение
+                showProductsByCategory(category);
+            });
+        });
+
+        // Автоматически загружаем первую категорию
+        if (categoryButtons.length > 0) {
+            categoryButtons[0].click();
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const categoryGroups = document.querySelectorAll('.category-group');
+
+        // Функция показывает нужную группу и скрывает другие
+        function showCategory(category) {
+            categoryGroups.forEach(group => {
+                if (group.dataset.category === category) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+
+        // Обработчики кнопок
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.dataset.category;
+
+                // Обновляем активный стиль
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Показываем нужную категорию
+                showCategory(category);
+            });
+        });
+
+        // Показываем первую категорию при загрузке
+        const firstCategory = document.querySelector('.category-btn.active').dataset.category;
+        showCategory(firstCategory);
+    });
+</script>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('modal');
+    const closeBtn = document.querySelector('.close');
+    const productCards = document.querySelectorAll('.product-card');
+
+    // Добавляем обработчик клика на каждую карточку товара
+    productCards.forEach(card => {
+        const detailsBtn = card.querySelector('.btn-details');
+        if (detailsBtn) {
+            detailsBtn.addEventListener('click', function () {
+                const title = card.querySelector('.product-info h3').textContent;
+                const imageSrc = card.querySelector('img').src;
+
+                // Заполняем данные в модальном окне
+                modal.querySelector('.modal-title').textContent = title;
+                modal.querySelector('.modal-image').src = imageSrc;
+
+                // Открываем модальное окно
+                modal.style.display = 'block';
+            });
+        }
+    });
+
+    // Закрытие модального окна
+    closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+     </script>
+
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const productCards = document.querySelectorAll('.product-card');
+    const modal = document.getElementById('modal');
+    const modalImage = document.querySelector('.modal-image');
+    const modalTitle = document.querySelector('.modal-title');
+    const modalDetails = document.querySelector('.modal-details');
+
+    // При клике на карточку товара
+    productCards.forEach(card => {
+        card.addEventListener('click', function () {
+            // Получаем все данные из data-атрибутов
+            const title = card.dataset.title;
+            const image = card.dataset.image;
+            const size = card.dataset.size || '—';
+            const gost = card.dataset.gost || '—';
+            const strength = card.dataset.strength || '—';
+            const color = card.dataset.color || '—';
+            const weight = card.dataset.weight || '—';
+            const thermal = card.dataset.thermal || '—';
+            const description = card.dataset.description || '—';
+            const pallet = card.dataset.pallet || '—';
+            const pack = card.dataset.pack || '—';
+            const road = card.dataset.road || '—';
+            const emptiness = card.dataset.emptiness || '—';
+            const resistance = card.dataset.resistance || '—';
+            // Заполняем модальное окно
+            modalImage.src = image;
+            modalTitle.textContent = title;
+
+            modalDetails.innerHTML = `
+                <li><strong>Цвет:</strong> ${color}</li>
+                <li><strong>Применение:</strong> ${description}</li>
+                <br>
+                <h3>Основные характеристики</h3>
+                <ul>
+                    <li><strong>Размер:</strong> ${size}</li>
+                    <li><strong>Вес:</strong> ${weight}</li>
+                    <li><strong>Количество кирпича на поддоне для авто перевозок:</strong> ${pallet}</li>
+                    <li><strong>Упаковка:</strong> ${pack}</li>
+                    <li><strong>Транспортировка:</strong> ${road}</li>
+                </ul>
+                <br>
+                <h3>Прочие характеристики</h3>
+                <ul>
+                    <li><strong>ГОСТ:</strong> ${gost}</li>
+                    <li><strong>Прочность:</strong> ${strength}</li>
+                    <li><strong>Пустотность:</strong> ${emptiness}</li>
+                    <li><strong>Теплопроводность в кладке:</strong> ${thermal}</li>
+                    <li><strong>Морозостойкость:</strong> ${resistance}</li>
+                </ul>
+            `;
+
+            // Открываем модальное окно
+            modal.style.display = 'block';
+        });
+    });
+
+    // Закрытие по крестику
+    document.querySelector('.close').addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // Закрытие по клику вне окна
+    window.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+</script>
+</body>
+</html>
