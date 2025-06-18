@@ -1,35 +1,52 @@
-// Мобильная навигация
-document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('active');
-});
+// Мобильное меню
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
+    // Открытие/закрытие меню
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Закрытие меню при клике на ссылку
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
 
 // Плавный скролл к якорям
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-// Фильтрация галереи товаров
+// Фильтрация карточек
 const productCards = document.querySelectorAll('.product-card');
 const filterButtons = document.querySelectorAll('.filter-btn');
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
-        productCards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+if (filterButtons.length > 0 && productCards.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            productCards.forEach(card => {
+                const category = card.dataset.category || 'all';
+                card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
+            });
         });
     });
-});
-
+}
 
 // Кнопка "Наверх"
 const scrollToTopBtn = document.createElement('button');
@@ -39,7 +56,7 @@ scrollToTopBtn.style.cssText = `
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: var(--secondary-color);
+    background: var(--secondary-color, #754F44);
     color: white;
     border: none;
     padding: 10px;
@@ -47,12 +64,13 @@ scrollToTopBtn.style.cssText = `
     cursor: pointer;
     display: none;
     z-index: 100;
+    font-size: 20px;
 `;
 
 document.body.appendChild(scrollToTopBtn);
 
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
+    if (window.scrollY > 300) {
         scrollToTopBtn.style.display = 'block';
     } else {
         scrollToTopBtn.style.display = 'none';
@@ -67,66 +85,83 @@ scrollToTopBtn.addEventListener('click', () => {
 });
 
 // Анимация при скролле
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-        }
-    });
-}, observerOptions);
-
+const observerOptions = { threshold: 0.1 };
 const animatedElements = document.querySelectorAll('.feature-card, .product-card, .testimonial-card');
-animatedElements.forEach(element => observer.observe(element));
 
-document.getElementById('contact-form').addEventListener('submit', function (event) {
+if (animatedElements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(element => observer.observe(element));
+}
+
+// Пример обработки формы
+document.getElementById('contact-form')?.addEventListener('submit', function (event) {
     event.preventDefault();
     alert('Ваше сообщение отправлено!');
 });
 
-
-// Close the modal when clicking on the close button
-document.querySelector('.close').onclick = function () {
+// Закрытие модального окна
+document.querySelector('.close')?.addEventListener('click', () => {
     document.getElementById('order-form').style.display = 'none';
-}
-
-// Initialize cart count
-document.addEventListener('DOMContentLoaded', () => {
-    cart.updateUI();
 });
 
+
+// Работа с категориями
 document.addEventListener('DOMContentLoaded', function () {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const contentContainer = document.getElementById('categoryContent');
 
-    // Функция для загрузки шаблона
     function loadCategory(category) {
         const template = document.getElementById(`template-${category}`);
         if (!template || !contentContainer) return;
-
-        // Записываем в контейнер
         contentContainer.innerHTML = template.innerHTML;
     }
 
-    // Обработчики кликов
     categoryButtons.forEach(button => {
         button.addEventListener('click', function () {
             const category = this.dataset.category;
 
-            // Активная кнопка
             categoryButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
-            // Загружаем нужную категорию
             loadCategory(category);
         });
     });
 
-    // Автоматически загружаем первую категорию при старте
-    const firstCategory = document.querySelector('.category-btn.active').dataset.category;
-    loadCategory(firstCategory);
+    const firstCategoryButton = document.querySelector('.category-btn.active');
+    if (firstCategoryButton) {
+        const firstCategory = firstCategoryButton.dataset.category;
+        loadCategory(firstCategory);
+    }
 });
 
+// При клике на карточку открываем модальное окно
+productCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const title = card.dataset.title || '';
+        const image = card.dataset.image || '';
+        const description = card.dataset.description || '';
+        const size = card.dataset.size || '—';
+        const weight = card.dataset.weight || '—';
+        const pallet = card.dataset.pallet || '—';
+
+        modalImage.src = image;
+        modalTitle.textContent = title;
+
+        // Компактное отображение характеристик
+        modalDetails.innerHTML = `
+            <li><strong>Описание:</strong> ${description}</li>
+            <li><strong>Размер:</strong> ${size}</li>
+            <li><strong>Вес:</strong> ${weight}</li>
+            <li><strong>Количество на поддоне:</strong> ${pallet}</li>
+        `;
+
+        modal.style.display = 'block';
+    });
+});

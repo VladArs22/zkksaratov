@@ -62,7 +62,7 @@ body {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(87, 77, 77, 0.7), rgba(87, 77, 77, 0.7)), url('public/images/brick_factory.jpg');
+    background: linear-gradient(rgba(87, 77, 77, 0.7), rgba(87, 77, 77, 0.7)), url('images/brick_factory.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
