@@ -265,19 +265,19 @@ document.getElementById("requestForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const text = document.getElementById("requestText").value;
 
-   fetch(`https://zkksaratov.onrender.com/for%20employees.html/submit-request`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ request: text })
-})
-.then(() => {
-    alert("Спасибо! Ваша просьба отправлена.");
-    document.getElementById("requestText").value = "";
-})
-.catch(err => {
-    console.error("Ошибка при отправке:", err);
-    alert("Ошибка при отправке формы");
-});
+   fetch(`${API_URL}/submit-request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ request: text })
+    })
+    .then(() => {
+        alert("Спасибо! Ваша просьба отправлена.");
+        document.getElementById("requestText").value = "";
+    })
+    .catch(err => {
+        console.error("Ошибка при отправке:", err);
+        alert("Не удалось отправить просьбу. Проверьте соединение.");
+    });
 
 // Открытие модального окна
 document.getElementById("openTestBtn").addEventListener("click", () => {
@@ -316,14 +316,19 @@ document.getElementById("testForm").addEventListener("submit", function (e) {
         q15: document.querySelector("input[name='q15']:checked")?.value
     };
 
-    fetch('https://zkksaratov.onrender.com/for%20employees.html/submit-test', {
+    fetch(`${API_URL}/submit-test`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
-    }).then(() => {
+    })
+    .then(() => {
         alert("Спасибо! Тест отправлен.");
         document.getElementById("testModal").style.display = "none";
         this.reset();
+    })
+    .catch(err => {
+        console.error("Ошибка при отправке теста:", err);
+        alert("Произошла ошибка при отправке теста");
     });
 });
 // Показ/скрытие вопроса 11 в зависимости от ответа на q10
