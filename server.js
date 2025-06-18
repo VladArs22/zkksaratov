@@ -1,10 +1,10 @@
-
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path'); // ✅ Добавлено
 
-dotenv.config()
+dotenv.config();
 
 const app = express();
 const pool = new Pool({
@@ -17,6 +17,12 @@ const pool = new Pool({
 
 app.use(cors());
 app.use(express.json());
+// Раздача статики
+app.use(express.static(path.join(__dirname, 'public')));
+//  Все не-API маршруты
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Анонимная просьба
 app.post('/submit-request', async (req, res) => {
