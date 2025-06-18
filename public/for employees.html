@@ -265,14 +265,18 @@ document.getElementById("requestForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const text = document.getElementById("requestText").value;
 
-    fetch('http://localhost:3000/submit-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ request: text })
-    }).then(() => {
-        alert("Спасибо! Ваша просьба отправлена.");
-        document.getElementById("requestText").value = "";
-    });
+   fetch(`https://zkksaratov.onrender.com/for%20employees.html/submit-request`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ request: text })
+})
+.then(() => {
+    alert("Спасибо! Ваша просьба отправлена.");
+    document.getElementById("requestText").value = "";
+})
+.catch(err => {
+    console.error("Ошибка при отправке:", err);
+    alert("Ошибка при отправке формы");
 });
 
 // Открытие модального окна
@@ -312,7 +316,7 @@ document.getElementById("testForm").addEventListener("submit", function (e) {
         q15: document.querySelector("input[name='q15']:checked")?.value
     };
 
-    fetch('http://localhost:3000/submit-test', {
+    fetch('https://zkksaratov.onrender.com/for%20employees.html/submit-test', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
