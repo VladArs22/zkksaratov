@@ -7,11 +7,24 @@ const path = require('path'); // ✅ Добавлено
 dotenv.config();
 
 const app = express();
+
+// Логируем DATABASE_URL для проверки
+console.log("Подключаюсь к БД:", process.env.DATABASE_URL);
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false // нужно для Supabase
   }
+});
+
+// Проверка подключения к БД
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.error("Ошибка подключения к БД:", err.message);
+    } else {
+        console.log("База данных доступна:", res.rows[0].now);
+    }
 });
 
 app.use(cors());
@@ -46,48 +59,65 @@ app.post('/submit-test', async (req, res) => {
     console.log('Received request body:', req.body); // Логируем входящие данные
 
     try {
-        const { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15 } = req.body;
+        const {
+            q1, q2, q3, q4, q5,
+            q6 = null,
+            q7, q8, q9, q10,
+            q11 = null,
+            q12 = [],
+            q13 = [],
+            q14, q15
+        } = req.body;
 
-        // Проверка обязательных полей
-        if (!q1 || !q2 || !q3 || !q4 || !q5 || !q7 || !q8 || !q9 || !q10 || !q14 || !q15) {
-            return res.status(400).send({
-                error: 'Не все обязательные поля заполнены',
-                requiredFields: ['q1', 'q2', 'q3', 'q4', 'q5', 'q7', 'q8', 'q9', 'q10', 'q14', 'q15']
-            });
+     // Проверка обязательных полей
+        const requiredFields = ['q1', 'q2', 'q3', 'q4', 'q5', 'q7', 'q8', 'q9', 'q10', 'q14', 'q15'];
+        const missing = requiredFields.filter(field => !req.body[field]);
+
+        if (missing.length > 0) {
+            return res.status(400).json({ error: 'Не все обязательные поля заполнены', missing });
         }
 
-        // Проверка формата q12 и q13
+        // Проверка массивов
         if (!Array.isArray(q12)) {
-            return res.status(400).send({ error: 'Поле q12 должно быть массивом' });
-        }
-        if (!Array.isArray(q13)) {
-            return res.status(400).send({ error: 'Поле q13 должно быть массивом' });
+            return res.status(400).json({ error: 'Поле q12 должно быть массивом' });
         }
 
-        // Преобразование массивов в JSONB (если необходимо)
-        const q12Json = JSON.stringify(q12);
-        const q13Json = JSON.stringify(q13);
+        if (!Array.isArray(q13)) {
+            return res.status(400).json({ error: 'Поле q13 должно быть массивом' });
+        }
+
+        // Преобразуем в JSONB
+        const q12Json = q12 ? JSON.stringify(q12) : null;
+        const q13Json = q13 ? JSON.stringify(q13) : null;
 
         await pool.query(
             `INSERT INTO employee_responses 
             (q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)`,
-            [
-                q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11,
-                q12Json, q13Json, q14, q15
-            ]
+            [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12Json, q13Json, q14, q15]
         );
 
         res.sendStatus(200);
     } catch (err) {
-        console.error('Ошибка при сохранении теста:', err.message);
-        if (err.code === '22P02') { // Ошибка типа данных в PostgreSQL
-            return res.status(400).send({
-                error: 'Неверный формат данных',
-                details: err.message
-            });
+        console.error("Ошибка при сохранении теста:", err.message);
+        if (err.code === '22P02') {
+            return res.status(400).json({ error: 'Неверный формат данных', details: err.message });
         }
-        res.status(500).send('Ошибка сохранения теста');
+        res.status(500).send('Ошибка сохранения');
+    }
+});
+
+// Получение всех просьб
+app.get('/get-requests', async (req, res) => {
+    const key = req.query.key;
+    if (key !== process.env.SECRET_KEY) return res.status(403).send('Нет доступа');
+
+    try {
+        const results = await pool.query('SELECT * FROM anonymous_requests ORDER BY created_at DESC');
+        res.json(results.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Ошибка загрузки просьб');
     }
 });
 
