@@ -1051,7 +1051,7 @@ footer {
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding-bottom: 50%; /* Пропорции 2:1 */
+  padding-bottom: 75%; /* Пропорции 2:1 */
 }
 
 /* Стили для iframe карты */
