@@ -1048,24 +1048,31 @@ footer {
 
 /* Контейнер для карты */
 .map-container {
-    flex: 1 1 600px; /* Минимум 600px, может расти */
-    min-width: 600px; /* Увеличиваем минимальную ширину карты */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 50%; /* Пропорции 2:1 */
 }
 
 /* Стили для iframe карты */
 .map-container iframe {
-    width: 100%;
-    height: 450px;
-    border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
-@media (max-width: 768px) {
-    .contact-and-map {
-        flex-direction: column; /* Вертикальное расположение на мобильных */
-    }
 
-    .map-container iframe {
-        height: 300px; /* Уменьшаем высоту карты на мобильных */
-    }
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+  .contact-and-map {
+    flex-direction: column;
+  }
+
+  .map-container {
+    padding-bottom: 50%; /* Можно изменить на 60% или 40%, если нужно */
+  }
 }
 
 /* === Форма запроса === */
