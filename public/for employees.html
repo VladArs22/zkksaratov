@@ -260,90 +260,112 @@
     </footer>
 
     <script>
-       // Отправка просьбы
-document.getElementById("requestForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const text = document.getElementById("requestText").value;
+    document.addEventListener("DOMContentLoaded", function () {
 
-   fetch(`http://localhost:3000/submit-request`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ request: text })
-    })
-    .then(() => {
-        alert("Спасибо! Ваша просьба отправлена.");
-        document.getElementById("requestText").value = "";
-    })
-    .catch(err => {
-        console.error("Ошибка при отправке:", err);
-        alert("Не удалось отправить просьбу. Проверьте соединение.");
-    });
+        // Все ваши обработчики событий внутри
 
-// Открытие модального окна
-document.getElementById("openTestBtn").addEventListener("click", () => {
-    document.getElementById("testModal").style.display = "block";
-});
+        // Отправка просьбы
+        document.getElementById("requestForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const text = document.getElementById("requestText").value;
 
-// Закрытие модального окна
-document.getElementById("closeModal").addEventListener("click", () => {
-    document.getElementById("testModal").style.display = "none";
-    document.getElementById("testForm").reset();
-});
-
-// Отправка теста
-document.getElementById("testForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const data = {
-        q1: document.querySelector("select[name='q1']").value,
-        q2: document.querySelector("select[name='q2']").value,
-        q3: document.querySelector("select[name='q3']").value,
-        q4: document.querySelector("select[name='q4']").value,
-        q5: document.querySelector("input[name='q5']:checked")?.value,
-
-        q6: document.querySelector("textarea[name='q6']")?.value,
-
-        q7: document.querySelector("input[name='q7']:checked")?.value,
-        q8: document.querySelector("input[name='q8']:checked")?.value,
-        q9: document.querySelector("input[name='q9']:checked")?.value,
-        q10: document.querySelector("input[name='q10']:checked")?.value,
-
-        q11: document.querySelector("textarea[name='q11']")?.value,
-
-        q12: Array.from(document.querySelectorAll("input[name='q12[]']:checked")).map(el => el.value),
-        q13: Array.from(document.querySelectorAll("input[name='q13[]']:checked")).map(el => el.value),
-
-        q14: document.querySelector("textarea[name='q14']")?.value,
-        q15: document.querySelector("input[name='q15']:checked")?.value
-    };
-
-    fetch(`http://localhost:3000/submit-test`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(() => {
-        alert("Спасибо! Тест отправлен.");
-        document.getElementById("testModal").style.display = "none";
-        this.reset();
-    })
-    .catch(err => {
-        console.error("Ошибка при отправке теста:", err);
-        alert("Произошла ошибка при отправке теста");
-    });
-});
-// Показ/скрытие вопроса 11 в зависимости от ответа на q10
-    document.querySelectorAll('input[name="q10"]').forEach(radio => {
-        radio.addEventListener('change', () => {
-            const question11 = document.getElementById('question11');
-            if (document.querySelector('input[name="q10"]:checked')?.value === 'да регулярно' ||
-                document.querySelector('input[name="q10"]:checked')?.value === 'иногда') {
-                question11.style.display = 'block';
-            } else {
-                question11.style.display = 'none';
-            }
+            fetch('https://zkksaratov.onrender.com/submit-request', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ request: text })
+            })
+            .then(() => {
+                alert("Спасибо! Ваша просьба отправлена.");
+                document.getElementById("requestText").value = "";
+            })
+            .catch(err => {
+                console.error("Ошибка при отправке:", err);
+                alert("Не удалось отправить просьбу. Проверьте соединение.");
+            });
         });
-    });
-    </script>
+
+        // Открытие модального окна
+        const openTestBtn = document.getElementById("openTestBtn");
+        const testModal = document.getElementById("testModal");
+
+        if (openTestBtn && testModal) {
+            openTestBtn.addEventListener("click", () => {
+                testModal.style.display = "block";
+            });
+
+            // Закрытие по крестику
+            document.getElementById("closeModal").addEventListener("click", () => {
+                testModal.style.display = "none";
+                document.getElementById("testForm").reset();
+            });
+
+            // Закрытие по клику вне окна
+            window.addEventListener("click", function (e) {
+                if (e.target === testModal) {
+                    testModal.style.display = "none";
+                    document.getElementById("testForm").reset();
+                }
+            });
+        } else {
+            console.warn("Кнопка или модальное окно не найдены");
+        }
+
+        // Отправка теста
+        document.getElementById("testForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = {
+                q1: document.querySelector("select[name='q1']").value,
+                q2: document.querySelector("select[name='q2']").value,
+                q3: document.querySelector("select[name='q3']").value,
+                q4: document.querySelector("select[name='q4']").value,
+                q5: document.querySelector("input[name='q5']:checked")?.value || '',
+                q6: document.querySelector("textarea[name='q6']")?.value || '',
+                q7: document.querySelector("input[name='q7']:checked")?.value || '',
+                q8: document.querySelector("input[name='q8']:checked")?.value || '',
+                q9: document.querySelector("input[name='q9']:checked")?.value || '',
+                q10: document.querySelector("input[name='q10']:checked")?.value || '',
+                q11: document.querySelector("textarea[name='q11']")?.value || '',
+                q12: Array.from(document.querySelectorAll("input[name='q12[]']:checked")).map(el => el.value),
+                q13: Array.from(document.querySelectorAll("input[name='q13[]']:checked")).map(el => el.value),
+                q14: document.querySelector("textarea[name='q14']")?.value || '',
+                q15: document.querySelector("input[name='q15']:checked")?.value || ''
+            };
+
+            fetch('https://zkksaratov.onrender.com/submit-test', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                alert("Спасибо! Тест отправлен.");
+                testModal.style.display = "none";
+                document.getElementById("testForm").reset();
+            })
+            .catch(err => {
+                console.error("Ошибка при отправке теста:", err);
+                alert("Произошла ошибка при отправке теста");
+            });
+        });
+
+        // Показ/скрытие вопроса 11
+        document.querySelectorAll('input[name="q10"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                const question11 = document.getElementById('question11');
+                if (!question11) return;
+
+                const value = document.querySelector('input[name="q10"]:checked')?.value;
+
+                if (value === 'да регулярно' || value === 'иногда') {
+                    question11.style.display = 'block';
+                } else {
+                    question11.style.display = 'none';
+                }
+            });
+        });
+
+    }); // Конец DOMContentLoaded
+</script>
 <style>
 
 /* Стили для кнопки */
