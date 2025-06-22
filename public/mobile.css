@@ -1,26 +1,15 @@
 /* mobile.css */
-
 body {
   margin: 0;
   padding: 0;
   font-size: 16px;
 }
 
-/* Корневой контейнер */
-.container {
-    width: 100%;
-    max-width: 100%; /* Убедитесь, что контейнеры не ограничены */
-    box-sizing: border-box; /* Включите box-sizing для всех элементов */
-}
-
-/* Шапка */
+/* Навигация */
 .navbar {
-    width: 100%;
-    background-color: #754F44; /* Цвет шапки */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+   width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .logo img {
@@ -67,6 +56,7 @@ body {
 
 /* Hero секция */
 .hero-content {
+  width: 100%;
   text-align: center;
 }
 
@@ -80,9 +70,11 @@ body {
 
 /* === Главная === */
 .feature-grid {
+  width: 100%;
   flex-direction: column;
   gap: 20px;
 }
+
 
 .feature-card {
   width: 100%;
