@@ -1052,6 +1052,7 @@ footer {
   position: relative;
   overflow: hidden;
   padding-bottom: 75%; /* Пропорции 2:1 */
+  border-radius: 8px;
 }
 
 /* Стили для iframe карты */
@@ -1068,6 +1069,7 @@ footer {
 @media (max-width: 768px) {
   .contact-and-map {
     flex-direction: column;
+    gap: 15px;
   }
 
   .map-container {
