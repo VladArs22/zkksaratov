@@ -13,9 +13,11 @@ console.log("Подключаюсь к БД:", process.env.DATABASE_URL);
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  host: 'db.gcpjcwvdshulcxdapumh.supabase.co',
   ssl: {
     rejectUnauthorized: false // нужно для Supabase
-  }
+  },
+  family: 4 // явно указываем IPv4
 });
 
 // Проверка подключения к БД
