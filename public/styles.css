@@ -1061,7 +1061,6 @@ footer {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 8px; /* Стиль */
 }
 @media (max-width: 768px) {
     .map-container {
@@ -1071,10 +1070,6 @@ footer {
   .map-container iframe {
     height: 100%;
   }
-
-    .contact-info {
-        order: -1; /* Контакты сверху, карта снизу */
-    }
 }
 
 /* === Форма запроса === */
