@@ -265,7 +265,7 @@ document.getElementById("requestForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const text = document.getElementById("requestText").value;
 
-   fetch(`${API_URL}/submit-request`, {
+   fetch(`https://zkksaratov.onrender.com/submit-request`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ request: text })
@@ -316,7 +316,7 @@ document.getElementById("testForm").addEventListener("submit", function (e) {
         q15: document.querySelector("input[name='q15']:checked")?.value
     };
 
-    fetch(`${API_URL}/submit-test`, {
+    fetch(`https://zkksaratov.onrender.com/submit-test`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
