@@ -1,18 +1,30 @@
 /* mobile.css */
 
 body {
-  padding: 10px;
+  margin: 0;
+  padding: 0;
   font-size: 16px;
 }
 
-/* Навигация */
+/* Корневой контейнер */
+.container {
+    width: 100%;
+    max-width: 100%; /* Убедитесь, что контейнеры не ограничены */
+    box-sizing: border-box; /* Включите box-sizing для всех элементов */
+}
+
+/* Шапка */
 .navbar {
-  flex-direction: column;
-  align-items: flex-start;
+    width: 100%;
+    background-color: #754F44; /* Цвет шапки */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 .logo img {
-  max-width: 150px;
+  max-width: 100%;
   height: auto;
 }
 
